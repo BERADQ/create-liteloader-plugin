@@ -1,0 +1,33 @@
+{
+  "name": "create-liteloader-plugin",
+  "type": "module",
+  "version": "0.1.1",
+  "description": "create a LiteLoader-Plugin",
+  "bin": "index.js",
+  "files": [
+    "index.js",
+    "template",
+    "dist"
+  ],
+  "scripts": {
+    "dev": "unbuild --stud",
+    "build": "unbuild",
+    "brun": "unbuild --stud & npm exec create-liteloader-plugin",
+    "run": "npm exec create-liteloader-plugin"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.6",
+    "@types/js-beautify": "^1",
+    "@types/lodash": "^4",
+    "@types/node": "^20.11.7",
+    "@types/prompts": "^2.4.9",
+    "cross-spawn": "^7.0.3",
+    "js-beautify": "^1.14.11",
+    "lodash": "^4.17.21",
+    "prompts": "^2.4.2",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0"
+  }
+}
