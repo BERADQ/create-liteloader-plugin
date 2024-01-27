@@ -8,14 +8,17 @@ import {
   readFileSync,
   writeFileSync,
 } from "node:fs";
+import { dirname, resolve } from "node:path";
 import js_beautify from "js-beautify";
-
+import { fileURLToPath } from "node:url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const FileName = {
   Mainfest: "mainfest.json",
   RendererJs: "renderer.js",
   MainJs: "main.js",
   PreloadJs: "preload.js",
 };
+const template_dir = resolve(__dirname, "../template");
 (async () => {
   init();
   console.info(
@@ -136,7 +139,7 @@ const FileName = {
   mkdirSync.$$(`创建文件夹${dir_name}失败`, src_dir);
   copyFileSync.$$(
     `创建文件${FileName.MainJs}失败`,
-    "template/main.template",
+    `${template_dir}/main.template`,
     `${src_dir}/${FileName.MainJs}`,
   );
   /*copyFileSync.$$(
@@ -146,14 +149,15 @@ const FileName = {
   );*/
   writeFileSync(
     `${src_dir}/${FileName.PreloadJs}`,
-    readFileSync("template/preload.template", { encoding: "utf8" }).replaceAll(
-      "{{plugin-slug}}",
-      response["plugin-slug"],
-    ),
+    readFileSync(`${template_dir}/preload.template`, { encoding: "utf8" })
+      .replaceAll(
+        "{{plugin-slug}}",
+        response["plugin-slug"],
+      ),
   );
   copyFileSync.$$(
     `创建文件${FileName.RendererJs}失败`,
-    "template/renderer.template",
+    `${template_dir}/renderer.template`,
     `${src_dir}/${FileName.RendererJs}`,
   );
   if (response["plugin-git"]) initGit(dir_name);
