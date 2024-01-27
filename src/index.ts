@@ -1,7 +1,13 @@
 import prompts from "prompts";
-import { getGitUserName, init, Mainfest, Regexp } from "./util";
+import { getGitUserName, init, initGit, Mainfest, Regexp } from "./util";
 import { snakeCase, upperFirst, words } from "lodash";
-import { copyFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
+import {
+  copyFileSync,
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  writeFileSync,
+} from "node:fs";
 import js_beautify from "js-beautify";
 
 const FileName = {
@@ -133,14 +139,22 @@ const FileName = {
     "template/main.template",
     `${src_dir}/${FileName.MainJs}`,
   );
-  copyFileSync.$$(
+  /*copyFileSync.$$(
     `创建文件${FileName.PreloadJs}失败`,
     "template/preload.template",
     `${src_dir}/${FileName.PreloadJs}`,
+  );*/
+  writeFileSync(
+    `${src_dir}/${FileName.PreloadJs}`,
+    readFileSync("template/preload.template", { encoding: "utf8" }).replaceAll(
+      "{{plugin-slug}}",
+      response["plugin-slug"],
+    ),
   );
   copyFileSync.$$(
     `创建文件${FileName.RendererJs}失败`,
     "template/renderer.template",
     `${src_dir}/${FileName.RendererJs}`,
   );
+  if (response["plugin-git"]) initGit(dir_name);
 })();

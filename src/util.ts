@@ -1,4 +1,5 @@
 import spawn from "cross-spawn";
+import { resolve } from "node:path";
 export async function getGitUserName(): Promise<string> {
   const child = spawn("git", ["config", "user.name"]);
   let output = "";
@@ -13,6 +14,17 @@ export async function getGitUserName(): Promise<string> {
       } else {
         throw new Error(`git执行失败 code:${code}, signal:${signal}`);
       }
+    });
+  });
+}
+export async function initGit(path: string): Promise<void> {
+  path = resolve(path);
+  const child = spawn("git", ["init"], { cwd: path });
+  return new Promise((res, rev) => {
+    child.on("exit", (code) => {
+      if (code === 0) {
+        res();
+      } else rev();
     });
   });
 }

@@ -2,8 +2,9 @@
   "name": "create-liteloader-plugin",
   "type": "module",
   "version": "0.1.1",
-  "description": "create a LiteLoader-Plugin",
+  "description": "auto create LiteLoader-Plugin",
   "bin": "index.js",
+  "keywords": ["create", "liteloader", "qqnt", "plugin", "auto"],
   "files": [
     "index.js",
     "template",
@@ -14,6 +15,15 @@
     "build": "unbuild",
     "brun": "unbuild --stud & npm exec create-liteloader-plugin",
     "run": "npm exec create-liteloader-plugin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BERADQ/create-liteloader-plugin.git"
+  },
+  "homepage":"https://liteloaderqqnt.github.io/",
+  "bugs":{
+    "url":"https://github.com/BERADQ/create-liteloader-plugin/issues",
+    "email":"adqber123@outlook.com"
   },
   "author": "",
   "license": "MIT",
