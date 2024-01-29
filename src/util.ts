@@ -36,8 +36,8 @@ export const Regexp = {
     /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/,
 };
 
-export interface Mainfest {
-  mainfest_version: 4;
+export interface Manifest {
+  manifest_version: 4;
   type: "extension" | "theme" | "framework";
   name: string;
   slug: string;
