@@ -1,10 +1,16 @@
 {
   "name": "create-liteloader-plugin",
   "type": "module",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "auto create LiteLoader-Plugin",
   "bin": "index.js",
-  "keywords": ["create", "liteloader", "qqnt", "plugin", "auto"],
+  "keywords": [
+    "create",
+    "liteloader",
+    "qqnt",
+    "plugin",
+    "auto"
+  ],
   "files": [
     "index.js",
     "template",
@@ -14,16 +20,17 @@
     "dev": "unbuild --stud",
     "build": "unbuild",
     "brun": "unbuild --stud & npm exec create-liteloader-plugin",
-    "run": "npm exec create-liteloader-plugin"
+    "run": "npm exec create-liteloader-plugin",
+    "test": "ts-node test.ts"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/BERADQ/create-liteloader-plugin.git"
   },
-  "homepage":"https://liteloaderqqnt.github.io/",
-  "bugs":{
-    "url":"https://github.com/BERADQ/create-liteloader-plugin/issues",
-    "email":"adqber123@outlook.com"
+  "homepage": "https://liteloaderqqnt.github.io/",
+  "bugs": {
+    "url": "https://github.com/BERADQ/create-liteloader-plugin/issues",
+    "email": "adqber123@outlook.com"
   },
   "author": "",
   "license": "MIT",
@@ -37,6 +44,7 @@
     "js-beautify": "^1.14.11",
     "lodash": "^4.17.21",
     "prompts": "^2.4.2",
+    "ts-node": "10.9.2",
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0"
   }

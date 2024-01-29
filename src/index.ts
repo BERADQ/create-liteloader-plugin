@@ -13,7 +13,7 @@ import js_beautify from "js-beautify";
 import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FileName = {
-  Manifest: "mainfest.json",
+  Manifest: "manifest.json",
   RendererJs: "renderer.js",
   MainJs: "main.js",
   PreloadJs: "preload.js",
@@ -102,7 +102,7 @@ const template_dir = resolve(__dirname, "../template");
       process.exit(0);
     },
   });
-
+  
   let user_name = await getGitUserName();
   let dir_name = `LiteLoaderQQNT-${words(response["project-name"]).map(upperFirst).join("-")
     }`;
@@ -127,13 +127,13 @@ const template_dir = resolve(__dirname, "../template");
     main: `./${injects_dir}/${FileName.MainJs}`,
     preload: `./${injects_dir}/${FileName.PreloadJs}`,
   };
-  let mainfest_string = JSON.stringify(manifest);
+  let manifest_string = JSON.stringify(manifest);
   if (existsSync(dir_name)) throw new Error(`文件夹${dir_name}已存在`);
   mkdirSync.$$(`创建文件夹${dir_name}失败`, dir_name);
   writeFileSync.$$(
     `创建${FileName.Manifest}文件失败`,
     `${dir_name}/${FileName.Manifest}`,
-    js_beautify.js(mainfest_string),
+    js_beautify.js(manifest_string),
   );
   const src_dir = `${dir_name}/${injects_dir}`;
   mkdirSync.$$(`创建文件夹${dir_name}失败`, src_dir);
