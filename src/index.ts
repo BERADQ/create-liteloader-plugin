@@ -110,7 +110,7 @@ const template_dir = resolve(__dirname, "../template");
   let manifest: Manifest = {
     manifest_version: 4,
     type: response["plugin-type"],
-    name: response["project-name"],
+    name: response["plugin-name"],
     slug: response["plugin-slug"],
     description: response["plugin-description"],
     version: "0.1.0",
@@ -120,7 +120,7 @@ const template_dir = resolve(__dirname, "../template");
         link: `https://github.com/${user_name}`,
       },
     ],
-    platfrom: response["plugin-platform"],
+    platform: response["plugin-platform"],
   };
   manifest.injects = {
     renderer: `./${injects_dir}/${FileName.RendererJs}`,

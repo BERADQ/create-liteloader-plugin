@@ -46,7 +46,7 @@ export interface Manifest {
   icon?: string | null;
   authors: Author[];
   dependencies?: string[];
-  platfrom: ("win32" | "linux" | "darwin")[];
+  platform: ("win32" | "linux" | "darwin")[];
   injects?: {
     renderer?: string;
     main?: string;
